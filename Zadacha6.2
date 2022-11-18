@@ -1,1 +1,35 @@
-
+#include <iostream>;
+using namespace std;
+int main() {
+	setlocale(LC_ALL, "ru");
+	const int m = 3;
+	const int n = 3;
+	int matr[m][n]{};
+	int max = 0;
+	int col = 0;
+	int ranow;
+	cout << "Здравствуйте , это программа по индивидуальному заданию 2.\nВведите любое число для создания рандомной матрицы: ";
+	cin >> ranow;
+	cout << "Исходная матрица:"<<endl;
+	for (int i = 0; i < m; i++) {
+		for (int j = 0; j < n; j++) {
+			matr[i][j] = rand() % ranow;
+			cout << matr[i][j]<< ' ';
+			(matr[i][j] > max)? max = matr[i][j],col = i: max = max;
+		}
+		cout << endl;
+	}
+	cout << endl;
+	cout << "Матрица с удаленной строкой:" << endl;
+	for (int k = 0; k < m; k++) {
+		for (int g = 0; g < n; g++) {
+			if(col != k){
+				cout << matr[k][g] << ' ';
+			}
+		}
+		if (col != k) {
+			cout << '\n';
+		}
+	}
+	cout << "Максимальное число в матрице: "<<max;
+}
