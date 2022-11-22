@@ -1,0 +1,31 @@
+#include <iostream>;
+using namespace std;
+int main() {
+	int p = 0;
+	int g = 0;
+	int n;
+	cin >> n;
+	const int m = 6;
+	int matr[m]{};
+	while (g < m) {
+		matr[g] = n % 10;
+		n /= 10;
+		g+= 1;
+	}
+		
+	for (int k = 0,c = m-1; k < m && c > k; k++,c--) {
+		if (matr[k] == matr[c]) {
+			p = 1;
+		}
+		else {
+			p = 0;
+			break;
+		}
+	}
+	if (p == 1) {
+		cout << "yes";
+	}
+	else {
+		cout << "no";
+	}
+}
